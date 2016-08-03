@@ -13,18 +13,19 @@
     <hr>
     <div class="form-group">
       <label for="numberOfRows">Enter Number Of Rows</label>
-      <input type="number" class="form-control" id="numberOfRows" placeholder="Enter number" data-ng-model="length">
+      <input type="number" class="form-control" id="numberOfRows" placeholder="Enter number" data-ng-model="len" value="{{len}}">
     </div>
+
     <hr>
-    <div data-ng-if="!(shouldDisplayTriangle(length))">
+    <div data-ng-if="!(shouldDisplayTriangle(len))">
       Nothing to show as out put !
     </div>
-    <div data-ng-if="shouldDisplayTriangle(length)">
+    <div data-ng-if="shouldDisplayTriangle(len)">
         
       <h3>Pascal Triangle</h3>
       <table class="table table-bordered">
-        <tr data-ng-repeat="r in getList(length)" data-ng-class="getClass(r)">
-          <td data-ng-repeat="c in getList(length)">
+        <tr data-ng-repeat="r in getList(len)" data-ng-class="getClass(r)">
+          <td data-ng-repeat="c in getList(len)">
             {{getPascalValue(r, c)}}
           </td>
         </tr>

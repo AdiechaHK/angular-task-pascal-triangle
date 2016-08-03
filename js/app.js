@@ -2,7 +2,13 @@ angular.module('angular-app-assignment', [])
 
 .controller('pascalTriangleCtrl', ['$scope', function($scope) {
 
-  $scope.length = null;
+  $scope.len;
+
+  var init = function() {
+    $scope.len = localStorage.getItem('len');
+  }
+
+  init();
 
   $scope.shouldDisplayTriangle = function(l) {
     return (l != null && l != 0);
@@ -41,5 +47,11 @@ angular.module('angular-app-assignment', [])
     }
     return cls;
   }
+
+  $scope.$watch('len', function() {
+    if(typeof $scope.len != "undefined") {
+      localStorage.setItem('len', $scope.len);
+    }
+  })
 
 }]);
